@@ -40,8 +40,7 @@ const UploadImage = () => {
             url: imgUrl,
           };
 
-          console.log(image);
-          fetch("http://localhost:5000/upload", {
+          fetch("https://dobby-ads-server.vercel.app/upload", {
             method: "POST",
             headers: {
               "content-type": "application/json",

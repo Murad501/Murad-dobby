@@ -21,7 +21,7 @@ function App() {
         >
           <button
             type="button"
-            className="bg-orange-500 flex items-center justify-center mx-auto my-5 text-white px-4 py-2 rounded-sm cursor-wait"
+            className="bg-sky-500 flex items-center justify-center mx-auto my-5 text-white px-4 py-2 rounded-sm cursor-wait"
             disabled
           >
             <FaRadiation className="animate-spin h-5 w-5 mr-3"></FaRadiation>

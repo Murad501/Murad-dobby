@@ -12,7 +12,7 @@ const ImageContext = ({ children }) => {
   } = useQuery({
     queryKey: ["images", user],
     queryFn: () =>
-      fetch(`http://localhost:5000/images/${user?.email}`).then((res) =>
+      fetch(`https://dobby-ads-server.vercel.app/images/${user?.email}`).then((res) =>
         res.json()
       ),
   });

@@ -28,6 +28,7 @@ const Navbar = () => {
     setOpen(!open);
   };
 
+
   const menus = (
     <>
       <li>
@@ -41,7 +42,7 @@ const Navbar = () => {
       <li>
         <Link
           className={`font-semibold bg-transparent px-3 py-2 hover:text-sky-400`}
-          to="/shop"
+          to="/upload"
         >
           Upload
         </Link>
@@ -68,16 +69,16 @@ const Navbar = () => {
     </>
   );
   return (
-    <div className={`navbar px-0 relative md:border-b`}>
-      <div className="flex-1">
-        <div className="flex gap-2 justify-center items-center">
+    <div className={`navbar flex justify-between px-0 relative md:border-b`}>
+      <div>
+        <Link to="/" className="flex gap-2 justify-center items-center">
           <span className="mx-auto text-2xl font-semibold">
             <AiOutlineCloudUpload></AiOutlineCloudUpload>
           </span>{" "}
           <p className="text-lg font-semibold">imgHub</p>
-        </div>
+        </Link>
       </div>
-      <div className="flex-none">
+      <div className="flex-1 justify-end">
         <ul className="menu menu-horizontal px-1 hidden md:flex items-center gap-4">
           {menus}
         </ul>

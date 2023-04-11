@@ -5,6 +5,7 @@ import { Toaster } from "react-hot-toast";
 import { FaRadiation } from "react-icons/fa";
 import { router } from "./Routes/router";
 import { RouterProvider } from "react-router-dom";
+import 'react-photo-view/dist/react-photo-view.css';
 
 function App() {
   const { isLoading } = useContext(loadingProvider);

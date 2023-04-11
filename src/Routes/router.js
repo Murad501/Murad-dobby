@@ -1,10 +1,10 @@
 import { createBrowserRouter } from "react-router-dom";
-// import Page404 from "../Components/Page404";
 import Main from "../Layout/Main";
 import Home from "../Pages/Home/Home";
 import Page404 from "../Components/Page404";
 import SignIn from "../Pages/SignIn/SignIn";
 import Signup from "../Pages/SignUp/SignUp";
+import UploadImage from "../Pages/UploadImage/UploadImage";
 
 export const router = createBrowserRouter([
   {
@@ -21,8 +21,12 @@ export const router = createBrowserRouter([
         element: <SignIn></SignIn>,
       },
       {
-        path: "signup",
+        path: "/signup",
         element: <Signup></Signup>,
+      },
+      {
+        path: "/upload",
+        element: <UploadImage></UploadImage>,
       },
     ],
   },

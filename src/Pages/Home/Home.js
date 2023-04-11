@@ -15,6 +15,7 @@ const Home = () => {
       image?.name.toLowerCase().includes(searchText)
     );
     setSearchImages(filteredImages);
+    console.log(filteredImages);
   };
   return (
     <div>
@@ -30,7 +31,7 @@ const Home = () => {
             />
           </div>
           {searchText ? (
-            searchImages ? (
+            !searchImages.length ? (
               <h3 className="text-xl text-center mt-10">Image not found.</h3>
             ) : (
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-[1px] my-10">

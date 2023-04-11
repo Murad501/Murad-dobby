@@ -5,6 +5,7 @@ import Page404 from "../Components/Page404";
 import SignIn from "../Pages/SignIn/SignIn";
 import Signup from "../Pages/SignUp/SignUp";
 import UploadImage from "../Pages/UploadImage/UploadImage";
+import PrivateRoute from "./PrivateRoute";
 
 export const router = createBrowserRouter([
   {
@@ -14,7 +15,7 @@ export const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <Home></Home>,
+        element: <PrivateRoute><Home></Home></PrivateRoute>,
       },
       {
         path: "/signin",
@@ -26,7 +27,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "/upload",
-        element: <UploadImage></UploadImage>,
+        element: <PrivateRoute><UploadImage></UploadImage></PrivateRoute>,
       },
     ],
   },

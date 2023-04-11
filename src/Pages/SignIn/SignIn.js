@@ -1,13 +1,12 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { toast } from "react-hot-toast";
-import { FaGoogle } from "react-icons/fa";
+import { FaGoogle, FaRadiation } from "react-icons/fa";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { loadingProvider } from "../../Context/LoadingContext";
 import { userProvider } from "../../Context/UserContext";
 
 const SignIn = () => {
   const { googleLogin, signIn } = useContext(userProvider);
-  const { setIsLoading } = useContext(loadingProvider);
+  const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
   let location = useLocation();
   let from = location.state?.from?.pathname || "/";
@@ -80,12 +79,23 @@ const SignIn = () => {
           />
         </div>
         <div className="mb-6 flex justify-start items-center">
-          <button
-            type="submit"
-            className={` font-semibold px-4 py-2 rounded-none mt-5`}
-          >
-            Sign In
-          </button>
+          {isLoading ? (
+            <button
+              type="button"
+              className="bg-sky-500 flex items-center justify-center mt-5 text-white px-4 py-2 rounded-sm cursor-wait"
+              disabled
+            >
+              <FaRadiation className="animate-spin mr-3"></FaRadiation>
+              Loading...
+            </button>
+          ) : (
+            <button
+              type="submit"
+              className={` font-semibold px-4 py-2 rounded-none mt-5 border hover:text-sky-500 hover:border-sky-500 transition-all duration-700`}
+            >
+              Sign In
+            </button>
+          )}
         </div>
       </form>
       <p>

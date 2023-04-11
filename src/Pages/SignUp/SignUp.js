@@ -2,15 +2,14 @@ import { updateProfile } from "firebase/auth";
 import React, { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
-import { FaGoogle, FaRegTimesCircle } from "react-icons/fa";
+import { FaGoogle, FaRadiation, FaRegTimesCircle } from "react-icons/fa";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { loadingProvider } from "../../Context/LoadingContext";
 import { userProvider } from "../../Context/UserContext";
 
 const Signup = () => {
   const [selectedImage, setSelectedImage] = useState(null);
   const { googleLogin, signUp } = useContext(userProvider);
-  const { setIsLoading } = useContext(loadingProvider);
+  const [isLoading, setIsLoading] = useState(false);
   const imgbbApi = process.env.REACT_APP_imgbbApi;
   let navigate = useNavigate();
   let location = useLocation();
@@ -202,12 +201,23 @@ const Signup = () => {
             </div>
           </div>
           <div className="mb-6 flex justify-start items-center">
-            <button
-              type="submit"
-              className={`font-semibold px-4 py-2 rounded-none mt-5`}
-            >
-              Sign Up
-            </button>
+            {isLoading ? (
+              <button
+                type="button"
+                className="bg-sky-500 flex items-center justify-center mt-5 text-white px-4 py-2 rounded-sm cursor-wait"
+                disabled
+              >
+                <FaRadiation className="animate-spin mr-3"></FaRadiation>
+                Loading...
+              </button>
+            ) : (
+              <button
+                type="submit"
+                className={`font-semibold px-4 py-2 rounded-none mt-5 border hover:text-sky-500 hover:border-sky-500 transition-all duration-700`}
+              >
+                Sign Up
+              </button>
+            )}
           </div>
         </form>
         <p className="mb-10">

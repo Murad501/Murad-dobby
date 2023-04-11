@@ -52,7 +52,7 @@ const Navbar = () => {
         <li>
           <Link
             style={{ borderRadius: "0px" }}
-            className={`border font-semibold px-3 py-2`}
+            className={`border font-semibold px-3 py-2 bg-white hover:text-sky-500 hover:border-sky-500`}
             to="/signin"
           >
             Sign In
@@ -61,7 +61,7 @@ const Navbar = () => {
       ) : (
         <button
           onClick={handleLogOut}
-          className={`border font-semibold text-white px-3 py-2 hover:text-sky-400 bg-sky-400 hover:border-sky-400 hover:bg-white`}
+          className={`border font-semibold text-white px-3 py-2 hover:text-sky-400 bg-sky-400 hover:border-sky-400`}
         >
           Sign Out
         </button>
